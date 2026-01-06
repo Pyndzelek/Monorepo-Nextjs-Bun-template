@@ -1,0 +1,10 @@
+{
+  "name": "monorepo-root",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel run dev",
+    "build": "pnpm -r run build",
+    "db:push": "cd packages/db && npx drizzle-kit push",
+    "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules"
+  }
+}

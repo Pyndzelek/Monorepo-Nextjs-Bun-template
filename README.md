@@ -196,6 +196,7 @@ If you change a validation rule, both apps update automatically.
 | -------------- | ------------------------------------------------ |
 | `pnpm dev`     | Starts the development server for all apps.      |
 | `pnpm build`   | Builds all apps and packages for production.     |
-| `pnpm db:push` | Pushes Drizzle schema changes to the database.   |
 | `pnpm lint`    | Runs ESLint across the workspace.                |
 | `pnpm clean`   | Nukes node_modules and caches for a fresh start. |
+| `pnpm db:generate` | Generates Drizzle schema changes to the database.   |
+| `pnpm db:push` | Pushes Drizzle schema changes to the database.   |

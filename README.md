@@ -1,4 +1,4 @@
-# Monorepo Boilerplate
+# Monorepo boilerplate
 
 A production-ready, high-performance full-stack monorepo featuring: **Bun**, **Hono**, and **Next.js**.
 
@@ -6,7 +6,7 @@ This architecture prioritizes **End-to-End Type Safety**, **Developer Experience
 
 ---
 
-## 🛠 Tech Stack
+## Tech stack
 
 ### Core
 
@@ -34,7 +34,7 @@ This architecture prioritizes **End-to-End Type Safety**, **Developer Experience
 
 ---
 
-## 📂 Repository Structure
+## Repository structure
 
 ```text
 .
@@ -53,7 +53,7 @@ This architecture prioritizes **End-to-End Type Safety**, **Developer Experience
 
 ---
 
-## 🚀 Getting Started
+## Getting started
 
 Follow these steps to get the project running locally in under 5 minutes.
 
@@ -112,7 +112,7 @@ pnpm dev
 
 ---
 
-## 📦 Development Workflow
+## Development workflow
 
 ### How to add a new dependency
 
@@ -151,7 +151,7 @@ You can now import it in both `apps/web` and `apps/api` immediately.
 
 ---
 
-## 🧠 Key Concepts
+## Key concepts
 
 ### Hono RPC (The "Magic" Link)
 
@@ -190,7 +190,7 @@ If you change a validation rule, both apps update automatically.
 
 ---
 
-## 📜 Scripts
+## scripts
 
 | Command        | Description                                      |
 | -------------- | ------------------------------------------------ |

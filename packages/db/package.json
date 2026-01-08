@@ -1,6 +1,12 @@
 {
   "name": "@repo/db",
   "private": true,
+  "scripts": {
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "bun src/migrate.ts",
+    "db:studio": "drizzle-kit studio"
+  },
   "exports": {
     ".": "./src/index.ts"
   },

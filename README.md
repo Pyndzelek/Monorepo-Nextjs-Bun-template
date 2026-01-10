@@ -126,6 +126,11 @@ pnpm add dayjs --filter web
 pnpm add lodash --filter api
 ```
 
+#### Adding shadcn components (from the root)
+```bash
+pnpm dlx shadcn@latest add card --cwd apps/web
+```
+
 ### How to modify the Database
 
 Edit `packages/db/src/schema.ts`.  

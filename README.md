@@ -1,5 +1,7 @@
 # Monorepo boilerplate
 
+## This branch provides a structure where zod schemas generated with drizzle-zod are inside db package
+
 A production-ready, high-performance full-stack monorepo featuring: **Bun**, **Hono**, and **Next.js**.
 
 This architecture prioritizes **End-to-End Type Safety**, **Developer Experience**, and **Scalability**.
@@ -44,8 +46,18 @@ This architecture prioritizes **End-to-End Type Safety**, **Developer Experience
 │   └── web          # Next.js 16 Frontend (Port 3000)
 │       └── lib/client  # Type-safe RPC client
 ├── packages
-│   ├── db           # Drizzle Schema, Connection, and Migrations
-│   ├── schemas      # Shared Zod schemas (Single Source of Truth)
+│   ├── db           # Unified Data Layer (Source of Truth)
+│   │   ├── drizzle.config.ts
+│   │   ├── package.json # Exports: ./client, ./schema, ./validation
+│   │   └── src
+│   │       ├── client.ts    # ⚠️ Heavy DB Connection (Server/API Only)
+│   │       ├── migrate.ts   # Migration entry point
+│   │       ├── schema       # 📂 Drizzle Table Definitions (Layer 1)
+│   │       │   ├── index.ts # Aggregates all tables
+│   │       │   └── user.ts  # 'users' table definition
+│   │       └── validation   # 📂 Zod Schemas & Types
+│   │           ├── index.ts # Aggregates all types
+│   │           └── user.ts  # Zod schemas generated from Drizzle
 │   └── tsconfig     # Shared TypeScript configurations
 ├── turbo.json       # Build pipeline configuration
 └── pnpm-workspace.yaml
@@ -127,6 +139,7 @@ pnpm add lodash --filter api
 ```
 
 #### Adding shadcn components (from the root)
+
 ```bash
 pnpm dlx shadcn@latest add card --cwd apps/web
 ```
@@ -197,11 +210,11 @@ If you change a validation rule, both apps update automatically.
 
 ## scripts
 
-| Command        | Description                                      |
-| -------------- | ------------------------------------------------ |
-| `pnpm dev`     | Starts the development server for all apps.      |
-| `pnpm build`   | Builds all apps and packages for production.     |
-| `pnpm lint`    | Runs ESLint across the workspace.                |
-| `pnpm clean`   | Nukes node_modules and caches for a fresh start. |
-| `pnpm db:generate` | Generates Drizzle schema changes to the database.   |
-| `pnpm db:push` | Pushes Drizzle schema changes to the database.   |
+| Command            | Description                                       |
+| ------------------ | ------------------------------------------------- |
+| `pnpm dev`         | Starts the development server for all apps.       |
+| `pnpm build`       | Builds all apps and packages for production.      |
+| `pnpm lint`        | Runs ESLint across the workspace.                 |
+| `pnpm clean`       | Nukes node_modules and caches for a fresh start.  |
+| `pnpm db:generate` | Generates Drizzle schema changes to the database. |
+| `pnpm db:push`     | Pushes Drizzle schema changes to the database.    |

@@ -4,6 +4,7 @@ A production-ready, high-performance full-stack monorepo featuring: **Bun**, **H
 
 This architecture prioritizes **End-to-End Type Safety**, **Developer Experience**, and **Scalability**.
 
+##### Note that there are two different branches to choose from with two different packages setup
 ---
 
 ## Tech stack
